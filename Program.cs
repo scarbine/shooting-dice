@@ -11,15 +11,15 @@ namespace ShootingDice
             Player player1 = new Player();
             player1.Name = "Bob";
 
-            Player player2 = new Player();
-            player2.Name = "Sue";
+            Player player2 = new OneHigherPlayer();
+            player2.Name = "Plus1";
 
             player2.Play(player1);
 
             Console.WriteLine("-------------------");
 
-            Player player3 = new Player();
-            player3.Name = "Wilma";
+            Player player3 = new HumanPlayer();
+            player3.Name = "iAmHuman";
 
             player3.Play(player2);
 
@@ -32,11 +32,19 @@ namespace ShootingDice
 
             Console.WriteLine("-------------------");
 
+            Player smack = new CreativeSmackTalkingPlayer();
+            smack.Name = "Smack";
+
+            smack.Play(player1);
+
+            Console.WriteLine("-------------------");
+
             List<Player> players = new List<Player>() {
-                player1, player2, player3, large
+                player1, player2, player3, large, smack
             };
 
             PlayMany(players);
+
         }
 
         static void PlayMany(List<Player> players)
@@ -48,6 +56,7 @@ namespace ShootingDice
             // This has the effect of shuffling them randomly
             Random randomNumberGenerator = new Random();
             List<Player> shuffledPlayers = players.OrderBy(p => randomNumberGenerator.Next()).ToList();
+           
 
             // We are going to match players against each other
             // This means we need an even number of players
