@@ -50,9 +50,21 @@ namespace ShootingDice
             singleSmack.Play(player1);
 
             Console.WriteLine("-------------------");
+            Player soreLoserUpper = new SoreLoserUpperHalfPlayer();
+            soreLoserUpper.Name = "Sore Upper";
+
+            soreLoserUpper.Play(player1);
+
+            Console.WriteLine("-------------------");
+            Player soreLoser = new SoreLoserPlayer();
+            soreLoser.Name = "Sore Loser";
+
+            soreLoser.Play(player1);
+
+            Console.WriteLine("-------------------");
 
             List<Player> players = new List<Player>() {
-                player1, player2, player3, large, smack, upperHalf, singleSmack
+                player1, player2, player3, large, smack, upperHalf, singleSmack, soreLoserUpper, soreLoser
             };
 
             PlayMany(players);
